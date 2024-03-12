@@ -40,12 +40,12 @@ impl Fp {
         self.0 >= MODULUS
     }
 
-    const fn add_assign(&mut self, rhs: Self) {
+    fn add_assign(&mut self, rhs: Self) {
         self.0 += rhs.0;
         self.0 = (self.0 & MODULUS) + (self.0 >> 31);
     }
 
-    const fn sub_assign(&mut self, rhs: Self) {
+    fn sub_assign(&mut self, rhs: Self) {
         self.0 += MODULUS - rhs.0;
         self.0 = (self.0 & MODULUS) + (self.0 >> 31);
     }
